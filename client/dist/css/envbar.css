@@ -1,0 +1,38 @@
+.page__envbar {
+  display: block;
+  margin: 0;
+  background-color: #051E2D;
+  padding: 10px;
+  color: #ffffff;
+  font-size: 12px;
+  line-height: 1.35;
+  text-align: center;
+}
+
+.page__envbar--dev {
+  background-color: #CD0F69;
+  color: #ffffff;
+}
+
+.page__envbar--test {
+  background-color: #732882;
+  color: #ffffff;
+}
+
+.page__envbar--live {
+  background-color: #005A94;
+  color: #ffffff;
+}
+
+.page__envbar--link:link,
+.page__envbar--link:visited {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.page__envbar--link:hover,
+.page__envbar--link:focus,
+.page__envbar--link:active {
+  color: #ffffff;
+  text-decoration: underline;
+}

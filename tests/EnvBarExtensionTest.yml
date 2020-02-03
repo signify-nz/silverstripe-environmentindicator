@@ -1,0 +1,55 @@
+SilverStripe\SiteConfig\SiteConfig:
+  default:
+    Title: Test site
+    CanViewType: Anyone
+    CanEditType: LoggedInUsers
+
+SilverStripe\Security\Group:
+  admins:
+    Title: Administrators
+  editors:
+    Title: Editors
+  reviewers:
+    Title: Reviewers
+  registeredusers:
+    Title: Registered users without CMS permissions
+
+SilverStripe\Security\Permission:
+  admins:
+    Code: ADMIN
+    Group: =>SilverStripe\Security\Group.admins
+  editors:
+    Code: CMS_ACCESS_CMSMain
+    Group: =>SilverStripe\Security\Group.editors
+  reviewers:
+    Code: VIEW_DRAFT_CONTENT
+    Group: =>SilverStripe\Security\Group.reviewers
+  registeredusers:
+    Group: =>SilverStripe\Security\Group.registeredusers
+
+SilverStripe\Security\Member:
+  admin:
+    FirstName: Test Admin
+    Email: admin@test.com
+    Password: testadmin
+    Groups: =>SilverStripe\Security\Group.admins
+  editor:
+    FirstName: Test Editor
+    Email: editor@test.com
+    Password: testeditor
+    Groups: =>SilverStripe\Security\Group.editors
+  reviewer:
+    FirstName: Test Reviewer
+    Email: reviewer@test.com
+    Password: testreviewer
+    Groups: =>SilverStripe\Security\Group.reviewers
+  registereduser:
+    FirstName: Test User
+    Email: user@test.com
+    Password: testuser
+    Groups: =>SilverStripe\Security\Group.registeredusers
+
+SilverStripe\CMS\Model\SiteTree:
+  default:
+    Title: Test Page
+    URLSegment: test-page

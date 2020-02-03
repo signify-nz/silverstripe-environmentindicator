@@ -1,0 +1,12 @@
+---
+Name: environmentindicatorconfig
+---
+SilverStripe\Admin\LeftAndMain:
+  extensions:
+    - Signify\EnvBar\Extensions\EnvBarLeftAndMainExtension
+---
+After: "framework/*, cms/*"
+---
+SilverStripe\CMS\Controllers\ContentController:
+  extensions:
+    - Signify\EnvBar\Extensions\EnvBarExtension

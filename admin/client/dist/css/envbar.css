@@ -1,0 +1,22 @@
+.cms__envbar {
+  margin: 0;
+  border-bottom: 1px solid #004E7F;
+  background-color: #051E2D;
+  padding: 15px 0;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.cms__envbar--dev {
+  background-color: #CD0F69;
+}
+
+.cms__envbar--test {
+  background-color: #732882;
+}
+
+.cms__envbar--live {
+  background-color: #005A94;
+}

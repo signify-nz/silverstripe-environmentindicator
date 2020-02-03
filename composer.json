@@ -1,0 +1,49 @@
+{
+    "name": "signify-nz/silverstripe-environmentindicator",
+    "description": "Vendor module to add an environment indicator in the CMS as well as information bar for the front-end.",
+    "type": "silverstripe-vendormodule",
+    "keywords": [
+        "silverstripe",
+        "cms",
+        "environment",
+        "version",
+        "access"
+    ],
+    "homepage": "https://github.com/signify-nz/silverstripe-environmentindicator",
+    "readme": "https://github.com/signify-nz/silverstripe-environmentindicator/README.md",
+    "license": "BSD-3-Clause",
+    "authors": [
+        {
+            "name": "Lani Field",
+            "email": "lani.field@signify.co.nz",
+            "role": "Developer"
+        },
+        {
+            "name": "Signify Ltd",
+            "homepage": "https://www.signify.co.nz/"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/signify-nz/silverstripe-environmentindicator/issues"
+    },
+    "require": {
+        "silverstripe/cms": "^4.0",
+        "silverstripe/framework": "^4.0",
+        "silverstripe/vendor-plugin": "^1.0",
+        "silverstripe/versioned": "^1.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^5.7"
+    },
+    "extra": {
+        "expose": [
+            "admin",
+            "client"
+        ]
+    },
+    "autoload": {
+        "psr-4": {
+            "Signify\\EnvBar\\": "src/"
+        }
+    }
+}
