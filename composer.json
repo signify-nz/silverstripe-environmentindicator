@@ -45,5 +45,10 @@
         "psr-4": {
             "Signify\\EnvBar\\": "src/"
         }
-    }
+    },
+    "config": {
+        "process-timeout": 600
+    },
+    "prefer-stable": true,
+    "minimum-stability": "dev"
 }
