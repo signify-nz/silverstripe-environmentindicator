@@ -79,7 +79,13 @@ class EnvBarExtension extends DataExtension
      */
     public function getEnvironment()
     {
-        return Director::get_environment_type();
+        if (Director::isDev()) {
+            return 'dev';
+        } elseif (Director::isTest()) {
+            return 'test';
+        } else {
+            return 'live';
+        }
     }
 
     /**
