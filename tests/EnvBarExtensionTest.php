@@ -237,7 +237,7 @@ This bar will not be visible to unauthorised users when live.</span>'
         $this->assertExactHTMLMatchBySelector(
             '#MemberLoginForm_LoginForm_BackURL',
             [
-                '<input type="hidden" name="BackURL" value="/test-page" class="hidden" id="MemberLoginForm_LoginForm_BackURL"/>'
+                '<input type="hidden" name="BackURL" value="/test-page" class="hidden" id="MemberLoginForm_LoginForm_BackURL" />'
             ]
         );
         if ($user) {
