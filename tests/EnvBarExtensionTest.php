@@ -228,15 +228,21 @@ class EnvBarExtensionTest extends FunctionalTest
     /**
      * Test the content of the EnvBar is correct for an authorised user
      */
-    private function testEnvBarAccessGranted($url, $user, $stage, $environment)
+    public function testEnvBarAccessGranted($url, $user, $stage, $environment)
     {
         $this->logInAs($user);
         $this->get($url);
         $this->assertExactHTMLMatchBySelector(
             '.page__envbar',
             [
-                '<a href="/admin/pages/edit/show/1" target="_blank" rel="noopener noreferrer" class="page__envbar page__envbar--link page__envbar--' . strtolower($environment) . '">Logged in as <strong>' . strtoupper($user->FirstName) . '</strong> viewing the <strong>' . strtoupper($stage) . '</strong> version of this page in the <strong>' . strtoupper($environment) . '</strong> environment.<br/>
-This bar will not be visible to unauthorised users when live. Click to <strong>EDIT</strong> in new tab.</a>'
+                '<a href="/admin/pages/edit/show/1" target="_blank" rel="noopener noreferrer" '
+                    . 'class="page__envbar page__envbar--link page__envbar--'
+                    . strtolower($environment) . '">Logged in as <strong>'
+                    . strtoupper($user->FirstName) . '</strong> viewing the <strong>'
+                    . strtoupper($stage) . '</strong> version of this page in the <strong>'
+                    . strtoupper($environment) . '</strong> environment.<br/>'
+                    . 'This bar will not be visible to unauthorised users when live. '
+                    . 'Click to <strong>EDIT</strong> in new tab.</a>'
             ]
         );
         $this->logOut();
@@ -245,7 +251,7 @@ This bar will not be visible to unauthorised users when live. Click to <strong>E
     /**
      * Test the content of the EnvBar is correct for an unauthorised user
      */
-    private function testEnvBarVisible($url, $user, $stage, $environment)
+    public function testEnvBarVisible($url, $user, $stage, $environment)
     {
         if ($user) {
             $this->logInAs($user);
@@ -254,10 +260,11 @@ This bar will not be visible to unauthorised users when live. Click to <strong>E
         $this->assertExactHTMLMatchBySelector(
             '.page__envbar',
             [
-                '<span class="page__envbar page__envbar--' . strtolower($environment) . '">You are viewing the'
-                    . ' <strong>' . strtoupper($stage) . '</strong> version of this page in the <strong>'
-                    . strtoupper($environment) . '</strong> environment.<br/>
-                ' . 'This bar will not be visible to unauthorised users when live.</span>'
+                '<span class="page__envbar page__envbar--'
+                    . strtolower($environment) . '">You are viewing the <strong>'
+                    . strtoupper($stage) . '</strong> version of this page in the <strong>'
+                    . strtoupper($environment) . '</strong> environment.<br/>'
+                    . 'This bar will not be visible to unauthorised users when live.</span>'
             ]
         );
         if ($user) {
@@ -268,7 +275,7 @@ This bar will not be visible to unauthorised users when live. Click to <strong>E
     /**
      * Test EnvBar is not injected into the page
      */
-    private function testEnvBarNotIncluded($url, $user, $stage, $environment)
+    public function testEnvBarNotIncluded($url, $user, $stage, $environment)
     {
         if ($user) {
             $this->logInAs($user);
@@ -286,7 +293,7 @@ This bar will not be visible to unauthorised users when live. Click to <strong>E
     /**
      * Test the unauthorised user is forbidden access
      */
-    private function testNotAuthorised($url, $user, $stage, $environment)
+    public function testNotAuthorised($url, $user, $stage, $environment)
     {
         if ($user) {
             $this->logInAs($user);
@@ -301,7 +308,7 @@ This bar will not be visible to unauthorised users when live. Click to <strong>E
     /**
      * Test the anonymous user is redirected to the login
      */
-    private function testRedirectToLogin($url, $user, $stage, $environment)
+    public function testRedirectToLogin($url, $user, $stage, $environment)
     {
         if ($user) {
             $this->logInAs($user);
