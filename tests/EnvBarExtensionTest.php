@@ -329,7 +329,7 @@ class EnvBarExtensionTest extends FunctionalTest
     /**
      * Get the correct url for the test
      */
-    private function getStagePageURL($stage)
+    public function getStagePageURL($stage)
     {
         $page = $this->objFromFixture('SilverStripe\CMS\Model\SiteTree', 'default');
         if ($stage === 'draft') {
