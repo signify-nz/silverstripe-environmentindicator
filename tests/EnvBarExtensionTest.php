@@ -27,13 +27,25 @@ class EnvBarExtensionTest extends FunctionalTest
         $stage = 'draft';
         $url = $this->getStagePageURL($stage);
 
-        $this->testEnvBarAccessGranted($url, $this->objFromFixture('SilverStripe\Security\Member', 'admin'), $stage, $environment);
+        $this->testEnvBarAccessGranted($url, $this->objFromFixture(
+            'SilverStripe\Security\Member',
+            'admin'
+        ), $stage, $environment);
 
-        $this->testEnvBarAccessGranted($url, $this->objFromFixture('SilverStripe\Security\Member', 'editor'), $stage, $environment);
+        $this->testEnvBarAccessGranted($url, $this->objFromFixture(
+            'SilverStripe\Security\Member',
+            'editor'
+        ), $stage, $environment);
 
-        $this->testEnvBarVisible($url, $this->objFromFixture('SilverStripe\Security\Member', 'reviewer'), $stage, $environment);
+        $this->testEnvBarVisible($url, $this->objFromFixture(
+            'SilverStripe\Security\Member',
+            'reviewer'
+        ), $stage, $environment);
 
-        $this->testNotAuthorised($url, $this->objFromFixture('SilverStripe\Security\Member', 'registereduser'), $stage, $environment);
+        $this->testNotAuthorised($url, $this->objFromFixture(
+            'SilverStripe\Security\Member',
+            'registereduser'
+        ), $stage, $environment);
 
         $this->testRedirectToLogin($url, null, $stage, $environment);
     }
@@ -50,13 +62,25 @@ class EnvBarExtensionTest extends FunctionalTest
         $stage = 'draft';
         $url = $this->getStagePageURL($stage);
 
-        $this->testEnvBarAccessGranted($url, $this->objFromFixture('SilverStripe\Security\Member', 'admin'), $stage, $environment);
+        $this->testEnvBarAccessGranted($url, $this->objFromFixture(
+            'SilverStripe\Security\Member',
+            'admin'
+        ), $stage, $environment);
 
-        $this->testEnvBarAccessGranted($url, $this->objFromFixture('SilverStripe\Security\Member', 'editor'), $stage, $environment);
+        $this->testEnvBarAccessGranted($url, $this->objFromFixture(
+            'SilverStripe\Security\Member',
+            'editor'
+        ), $stage, $environment);
 
-        $this->testEnvBarVisible($url, $this->objFromFixture('SilverStripe\Security\Member', 'reviewer'), $stage, $environment);
+        $this->testEnvBarVisible($url, $this->objFromFixture(
+            'SilverStripe\Security\Member',
+            'reviewer'
+        ), $stage, $environment);
 
-        $this->testNotAuthorised($url, $this->objFromFixture('SilverStripe\Security\Member', 'registereduser'), $stage, $environment);
+        $this->testNotAuthorised($url, $this->objFromFixture(
+            'SilverStripe\Security\Member',
+            'registereduser'
+        ), $stage, $environment);
 
         $this->testRedirectToLogin($url, null, $stage, $environment);
     }
@@ -73,13 +97,25 @@ class EnvBarExtensionTest extends FunctionalTest
         $stage = 'draft';
         $url = $this->getStagePageURL($stage);
 
-        $this->testEnvBarAccessGranted($url, $this->objFromFixture('SilverStripe\Security\Member', 'admin'), $stage, $environment);
+        $this->testEnvBarAccessGranted($url, $this->objFromFixture(
+            'SilverStripe\Security\Member',
+            'admin'
+        ), $stage, $environment);
 
-        $this->testEnvBarAccessGranted($url, $this->objFromFixture('SilverStripe\Security\Member', 'editor'), $stage, $environment);
+        $this->testEnvBarAccessGranted($url, $this->objFromFixture(
+            'SilverStripe\Security\Member',
+            'editor'
+        ), $stage, $environment);
 
-        $this->testEnvBarNotIncluded($url, $this->objFromFixture('SilverStripe\Security\Member', 'reviewer'), $stage, $environment);
+        $this->testEnvBarNotIncluded($url, $this->objFromFixture(
+            'SilverStripe\Security\Member',
+            'reviewer'
+        ), $stage, $environment);
 
-        $this->testNotAuthorised($url, $this->objFromFixture('SilverStripe\Security\Member', 'registereduser'), $stage, $environment);
+        $this->testNotAuthorised($url, $this->objFromFixture(
+            'SilverStripe\Security\Member',
+            'registereduser'
+        ), $stage, $environment);
 
         $this->testRedirectToLogin($url, null, $stage, $environment);
     }
@@ -96,13 +132,25 @@ class EnvBarExtensionTest extends FunctionalTest
         $stage = 'published';
         $url = $this->getStagePageURL($stage);
 
-        $this->testEnvBarAccessGranted($url, $this->objFromFixture('SilverStripe\Security\Member', 'admin'), $stage, $environment);
+        $this->testEnvBarAccessGranted($url, $this->objFromFixture(
+            'SilverStripe\Security\Member',
+            'admin'
+        ), $stage, $environment);
 
-        $this->testEnvBarAccessGranted($url, $this->objFromFixture('SilverStripe\Security\Member', 'editor'), $stage, $environment);
+        $this->testEnvBarAccessGranted($url, $this->objFromFixture(
+            'SilverStripe\Security\Member',
+            'editor'
+        ), $stage, $environment);
 
-        $this->testEnvBarVisible($url, $this->objFromFixture('SilverStripe\Security\Member', 'reviewer'), $stage, $environment);
+        $this->testEnvBarVisible($url, $this->objFromFixture(
+            'SilverStripe\Security\Member',
+            'reviewer'
+        ), $stage, $environment);
 
-        $this->testEnvBarVisible($url, $this->objFromFixture('SilverStripe\Security\Member', 'registereduser'), $stage, $environment);
+        $this->testEnvBarVisible($url, $this->objFromFixture(
+            'SilverStripe\Security\Member',
+            'registereduser'
+        ), $stage, $environment);
 
         $this->testEnvBarVisible($url, null, $stage, $environment);
     }
@@ -119,13 +167,25 @@ class EnvBarExtensionTest extends FunctionalTest
         $stage = 'published';
         $url = $this->getStagePageURL($stage);
 
-        $this->testEnvBarAccessGranted($url, $this->objFromFixture('SilverStripe\Security\Member', 'admin'), $stage, $environment);
+        $this->testEnvBarAccessGranted($url, $this->objFromFixture(
+            'SilverStripe\Security\Member',
+            'admin'
+        ), $stage, $environment);
 
-        $this->testEnvBarAccessGranted($url, $this->objFromFixture('SilverStripe\Security\Member', 'editor'), $stage, $environment);
+        $this->testEnvBarAccessGranted($url, $this->objFromFixture(
+            'SilverStripe\Security\Member',
+            'editor'
+        ), $stage, $environment);
 
-        $this->testEnvBarVisible($url, $this->objFromFixture('SilverStripe\Security\Member', 'reviewer'), $stage, $environment);
+        $this->testEnvBarVisible($url, $this->objFromFixture(
+            'SilverStripe\Security\Member',
+            'reviewer'
+        ), $stage, $environment);
 
-        $this->testEnvBarVisible($url, $this->objFromFixture('SilverStripe\Security\Member', 'registereduser'), $stage, $environment);
+        $this->testEnvBarVisible($url, $this->objFromFixture(
+            'SilverStripe\Security\Member',
+            'registereduser'
+        ), $stage, $environment);
 
         $this->testEnvBarVisible($url, null, $stage, $environment);
     }
@@ -142,13 +202,25 @@ class EnvBarExtensionTest extends FunctionalTest
         $stage = 'published';
         $url = $this->getStagePageURL($stage);
 
-        $this->testEnvBarAccessGranted($url, $this->objFromFixture('SilverStripe\Security\Member', 'admin'), $stage, $environment);
+        $this->testEnvBarAccessGranted($url, $this->objFromFixture(
+            'SilverStripe\Security\Member',
+            'admin'
+        ), $stage, $environment);
 
-        $this->testEnvBarAccessGranted($url, $this->objFromFixture('SilverStripe\Security\Member', 'editor'), $stage, $environment);
+        $this->testEnvBarAccessGranted($url, $this->objFromFixture(
+            'SilverStripe\Security\Member',
+            'editor'
+        ), $stage, $environment);
 
-        $this->testEnvBarNotIncluded($url, $this->objFromFixture('SilverStripe\Security\Member', 'reviewer'), $stage, $environment);
+        $this->testEnvBarNotIncluded($url, $this->objFromFixture(
+            'SilverStripe\Security\Member',
+            'reviewer'
+        ), $stage, $environment);
 
-        $this->testEnvBarNotIncluded($url, $this->objFromFixture('SilverStripe\Security\Member', 'reviewer'), $stage, $environment);
+        $this->testEnvBarNotIncluded($url, $this->objFromFixture(
+            'SilverStripe\Security\Member',
+            'reviewer'
+        ), $stage, $environment);
 
         $this->testEnvBarNotIncluded($url, null, $stage, $environment);
     }
@@ -182,8 +254,10 @@ This bar will not be visible to unauthorised users when live. Click to <strong>E
         $this->assertExactHTMLMatchBySelector(
             '.page__envbar',
             [
-                '<span class="page__envbar page__envbar--' . strtolower($environment) . '">You are viewing the <strong>' . strtoupper($stage) . '</strong> version of this page in the <strong>' . strtoupper($environment) . '</strong> environment.<br/>
-This bar will not be visible to unauthorised users when live.</span>'
+                '<span class="page__envbar page__envbar--' . strtolower($environment) . '">You are viewing the'
+                    . ' <strong>' . strtoupper($stage) . '</strong> version of this page in the <strong>'
+                    . strtoupper($environment) . '</strong> environment.<br/>
+                ' . 'This bar will not be visible to unauthorised users when live.</span>'
             ]
         );
         if ($user) {
@@ -236,7 +310,8 @@ This bar will not be visible to unauthorised users when live.</span>'
         $this->assertExactHTMLMatchBySelector(
             '#MemberLoginForm_LoginForm_BackURL',
             [
-                '<input type="hidden" name="BackURL" value="/test-page" class="hidden" id="MemberLoginForm_LoginForm_BackURL" />'
+                '<input type="hidden" name="BackURL" value="/test-page" class="hidden"'
+                    . ' id="MemberLoginForm_LoginForm_BackURL" />'
             ]
         );
         if ($user) {
