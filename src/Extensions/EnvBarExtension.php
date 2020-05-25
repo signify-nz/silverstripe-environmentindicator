@@ -12,22 +12,22 @@ use SilverStripe\View\Requirements;
 
 /**
  * EnvBarExtension
- * 
+ *
  * This class extends the @see SilverStripe\CMS\Controllers\ContentController
  * class.
- * 
+ *
  * It contains methods to check the environment type, page status (versioning)
  * and user access (member permissions) and returns values to populate the
  * EnvBar.
- * 
+ *
  * It also contains methods to modify the HTTPResponse before and after the
  * @see SilverStripe\Control\RequestHandler inserting the CSS and HTML required
  * to produce the EnvBar.
- * 
+ *
  * @package Signify\EnvBar\Extensions
  * @author Lani Field <lani.field@signify.co.nz>
  * @version 1.0.0
- * 
+ *
  * @param  HTTPRequest $request
  * @return HTTPResponse $result with the EnvBar CSS and HTML inserted.
  */
@@ -35,7 +35,7 @@ class EnvBarExtension extends DataExtension
 {
     /**
      * Load the CSS requirement.
-     * 
+     *
      * @param HTTPRequest $request
      * @param string $action
      * @return void
@@ -48,7 +48,7 @@ class EnvBarExtension extends DataExtension
 
     /**
      * Rewrite the HTML of the viewed page to insert the EnvBar.
-     * 
+     *
      * @param HTTPRequest $request
      * @param string $action
      * @param DBHTMLText $result from the original RequestHandler
@@ -73,7 +73,7 @@ class EnvBarExtension extends DataExtension
 
     /**
      * Check the environment type.
-     * 
+     *
      * @return string "dev" if the site is in dev mode, "test" if the site is
      * in test mode (e.g. QA or UAT), "live" otherwise (e.g. Production)
      */
@@ -90,7 +90,7 @@ class EnvBarExtension extends DataExtension
 
     /**
      * Check the version of the page being viewed.
-     * 
+     *
      * @return string "published" if it is the current live version in this
      * environment, "draft" if it is a modified or unpublished version,
      * "not staged" otherwise
@@ -108,7 +108,7 @@ class EnvBarExtension extends DataExtension
 
     /**
      * Check whether CurrentUser has access to edit pages.
-     * 
+     *
      * @return boolean "true" if the user can edit pages, "false" otherwise
      */
     public function getCanAccess()
@@ -123,7 +123,7 @@ class EnvBarExtension extends DataExtension
 
     /**
      * Generate the HTML to inject using the EnvBar.ss template.
-     * 
+     *
      * @return DBHTMLText
      */
     private function generateEnvBar()
