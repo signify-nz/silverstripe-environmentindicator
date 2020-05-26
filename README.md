@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/signify-nz/silverstripe-environmentindicator.svg?branch=master)](https://travis-ci.org/signify-nz/silverstripe-environmentindicator)
+[![codecov](https://codecov.io/gh/signify-nz/silverstripe-environmentindicator/branch/master/graph/badge.svg)](https://codecov.io/gh/signify-nz/silverstripe-environmentindicator)
+
 # Environment Indicator
 
 The Environment Indicator Vendor Module reads the SS_ENVIRONMENT_TYPE variable in your .env file (dev, test or live) and loads the applicable javascript to insert a custom div above the menu header in the CMS Admin interface.
