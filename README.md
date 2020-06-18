@@ -23,9 +23,20 @@ __Composer:__
 
 ## Documentation
 
-No further configuration is required.
+No further configuration is required, however customisation is optional.
 
-Customisation can be achieved by editing the EnvBar.ss template or the envbar- .js and .css files. Functional tests are available in the tests directory. These will need to be updated if you modify the template.
+### Developer
+
+To disable the automatic placement of the bar as the first element of the body (if, for example, you have a fixed notification bar in your theme design), please add the following to a yml file in your site _config directory:
+
+```yml
+Signify\EnvBar\Extensions\EnvBarExtension:
+  disable_auto_insert: true
+```
+
+You can then use the template variable `$EnvBar` in a more suitable position (recommended placement is in the Page.ss file or an include that is visible sitewide).
+
+Customisation of the content and/or appearance can be achieved by editing the EnvBar.ss template or the envbar- .js and .css files. Functional tests are available in the tests directory. These will need to be updated if you modify the template.
 
 * [Changelog](CHANGELOG.md)
 * [Contributing](CONTRIBUTING.md)
@@ -34,7 +45,10 @@ Customisation can be achieved by editing the EnvBar.ss template or the envbar- .
 
 ## Usage
 
-This module performs an informative function only. No special usage instructions are available.
+This module performs an informative function only.
+
+There is a setting in the CMS to disable the bar from being visible on the frontend.
+![Override Setting](docs/en/img/Override Setting.png)
 
 ![Live Published Anonymous](docs/en/img/Live_Pub_Anon.png)
 ![Live Published Editor](docs/en/img/Live_Pub_Edit.png)
