@@ -7,6 +7,7 @@ use SilverStripe\ORM\DataExtension;
 use SilverStripe\ORM\FieldType\DBHTMLText;
 use SilverStripe\Security\Permission;
 use SilverStripe\Security\Security;
+use SilverStripe\SiteConfig\SiteConfig;
 use SilverStripe\Versioned\Versioned;
 use SilverStripe\View\Requirements;
 
@@ -58,6 +59,9 @@ class EnvBarExtension extends DataExtension
     public function afterCallActionHandler($request, $action, $result)
     {
         if (!($result instanceof DBHTMLText)) {
+            return $result;
+        }
+        if (SiteConfig::current_site_config()->EnvBarOverride) {
             return $result;
         }
         $html = $result->getValue();
