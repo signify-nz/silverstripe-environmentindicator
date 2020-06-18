@@ -41,7 +41,7 @@ class EnvBarSiteConfigExtension extends DataExtension
         $fields->addFieldsToTab('Root.EnvironmentIndicator', [
             CheckboxField::create(
                 'EnvBarOverride',
-                'Tick to turn off the environment indicator bar displayed by default'
+                'Tick to turn off the environment indicator bar'
             ),
         ]);
     }
