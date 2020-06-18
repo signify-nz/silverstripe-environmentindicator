@@ -3,6 +3,7 @@
 namespace Signify\EnvBar\Extensions;
 
 use SilverStripe\Control\Director;
+use SilverStripe\Core\Config\Config;
 use SilverStripe\ORM\DataExtension;
 use SilverStripe\ORM\FieldType\DBHTMLText;
 use SilverStripe\Security\Permission;
@@ -64,6 +65,9 @@ class EnvBarExtension extends DataExtension
         if (SiteConfig::current_site_config()->EnvBarOverride) {
             return $result;
         }
+        if (Config::inst()->get(__CLASS__, 'disable_auto_insert')) {
+            return $result;
+        }
         $html = $result->getValue();
         $envBar = $this->generateEnvBar()->getValue();
         $html = preg_replace(
@@ -122,6 +126,21 @@ class EnvBarExtension extends DataExtension
             return true;
         } else {
             return false;
+        }
+    }
+
+    /**
+     * Get EnvBar html as a template variable.
+     *
+     * @return DBHTMLText
+     */
+    public function getEnvBar()
+    {
+        if (
+            Config::inst()->get(__CLASS__, 'disable_auto_insert')
+            && !(SiteConfig::current_site_config()->EnvBarOverride)
+        ) {
+            return $this->generateEnvBar();
         }
     }
 
