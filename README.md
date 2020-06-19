@@ -48,7 +48,7 @@ Customisation of the content and/or appearance can be achieved by editing the En
 This module performs an informative function only.
 
 There is a setting in the CMS to disable the bar from being visible on the frontend.
-![Override Setting](docs/en/img/Override Setting.png)
+![Override Setting](docs/en/img/Override_Setting.png)
 
 ![Live Published Anonymous](docs/en/img/Live_Pub_Anon.png)
 ![Live Published Editor](docs/en/img/Live_Pub_Edit.png)
