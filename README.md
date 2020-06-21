@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.org/signify-nz/silverstripe-environmentindicator.svg?branch=master)](https://travis-ci.org/signify-nz/silverstripe-environmentindicator)
-[![codecov](https://codecov.io/gh/signify-nz/silverstripe-environmentindicator/branch/master/graph/badge.svg)](https://codecov.io/gh/signify-nz/silverstripe-environmentindicator)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/signify-nz/silverstripe-environmentindicator/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/signify-nz/silverstripe-environmentindicator/?branch=master)
 
 # Environment Indicator
 
