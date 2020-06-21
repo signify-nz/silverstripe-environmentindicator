@@ -28,8 +28,8 @@ use SilverStripe\View\Requirements;
  * @author  Lani Field <lani.field@signify.co.nz>
  * @version 1.0.1
  *
- * @param  SilverStripe\Control\HTTPRequest $request
- * @return SilverStripe\Control\HTTPResponse $result
+ * @param  \SilverStripe\Control\HTTPRequest $request
+ * @return \SilverStripe\Control\HTTPResponse $result
  *         with the EnvBar CSS and HTML inserted.
  */
 class EnvBarExtension extends DataExtension
@@ -37,7 +37,7 @@ class EnvBarExtension extends DataExtension
     /**
      * Load the CSS requirement.
      *
-     * @param  SilverStripe\Control\HTTPRequest $request
+     * @param  \SilverStripe\Control\HTTPRequest $request
      * @param  string $action
      * @return void
      * @see SilverStripe\Control\RequestHandler::handleAction
@@ -50,11 +50,11 @@ class EnvBarExtension extends DataExtension
     /**
      * Rewrite the HTML of the viewed page to insert the EnvBar.
      *
-     * @param  SilverStripe\Control\HTTPRequest $request
+     * @param  \SilverStripe\Control\HTTPRequest $request
      * @param  string $action
-     * @param  SilverStripe\ORM\FieldType\DBHTMLText $result
+     * @param  \SilverStripe\ORM\FieldType\DBHTMLText $result
      *         from the original RequestHandler
-     * @return SilverStripe\ORM\FieldType\DBHTMLText $result
+     * @return \SilverStripe\ORM\FieldType\DBHTMLText $result
      *         with the EnvBar HTML inserted
      * @see SilverStripe\Control\RequestHandler::handleAction
      */
@@ -132,7 +132,7 @@ class EnvBarExtension extends DataExtension
     /**
      * Generate the HTML to inject using the EnvBar.ss template.
      *
-     * @return SilverStripe\ORM\FieldType\DBHTMLText
+     * @return \SilverStripe\ORM\FieldType\DBHTMLText
      */
     private function generateEnvBar()
     {
