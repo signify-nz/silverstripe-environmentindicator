@@ -20,24 +20,25 @@ use SilverStripe\View\Requirements;
  * and user access (member permissions) and returns values to populate the
  * EnvBar.
  *
- * It also contains methods to modify the HTTPResponse before and after the
- * @see SilverStripe\Control\RequestHandler inserting the CSS and HTML required
- * to produce the EnvBar.
+ * It also contains methods to modify the @see SilverStripe\Control\HTTPResponse
+ * before and after the @see SilverStripe\Control\RequestHandler
+ * inserting the CSS and HTML required to produce the EnvBar.
  *
  * @package Signify\EnvBar\Extensions
- * @author Lani Field <lani.field@signify.co.nz>
- * @version 1.0.0
+ * @author  Lani Field <lani.field@signify.co.nz>
+ * @version 1.0.1
  *
- * @param  HTTPRequest $request
- * @return HTTPResponse $result with the EnvBar CSS and HTML inserted.
+ * @param  \SilverStripe\Control\HTTPRequest $request
+ * @return \SilverStripe\Control\HTTPResponse $result
+ *         with the EnvBar CSS and HTML inserted.
  */
 class EnvBarExtension extends DataExtension
 {
     /**
      * Load the CSS requirement.
      *
-     * @param HTTPRequest $request
-     * @param string $action
+     * @param  \SilverStripe\Control\HTTPRequest $request
+     * @param  string $action
      * @return void
      * @see SilverStripe\Control\RequestHandler::handleAction
      */
@@ -49,10 +50,12 @@ class EnvBarExtension extends DataExtension
     /**
      * Rewrite the HTML of the viewed page to insert the EnvBar.
      *
-     * @param HTTPRequest $request
-     * @param string $action
-     * @param DBHTMLText $result from the original RequestHandler
-     * @return HTTPResponse $result with the EnvBar CSS and HTML inserted
+     * @param  \SilverStripe\Control\HTTPRequest $request
+     * @param  string $action
+     * @param  \SilverStripe\ORM\FieldType\DBHTMLText $result
+     *         from the original RequestHandler
+     * @return \SilverStripe\ORM\FieldType\DBHTMLText $result
+     *         with the EnvBar HTML inserted
      * @see SilverStripe\Control\RequestHandler::handleAction
      */
     public function afterCallActionHandler($request, $action, $result)
@@ -74,8 +77,10 @@ class EnvBarExtension extends DataExtension
     /**
      * Check the environment type.
      *
-     * @return string "dev" if the site is in dev mode, "test" if the site is
-     * in test mode (e.g. QA or UAT), "live" otherwise (e.g. Production)
+     * @return string
+     *         "dev" if the site is in dev mode,
+     *         "test" if the site is in test mode (e.g. QA or UAT),
+     *         "live" otherwise (e.g. Production)
      */
     public function getEnvironment()
     {
@@ -91,9 +96,10 @@ class EnvBarExtension extends DataExtension
     /**
      * Check the version of the page being viewed.
      *
-     * @return string "published" if it is the current live version in this
-     * environment, "draft" if it is a modified or unpublished version,
-     * "not staged" otherwise
+     * @return string
+     *         "published" if it is the current live version in this environment,
+     *         "draft" if it is a modified or unpublished version,
+     *         "not staged" otherwise
      */
     public function getPageStatus()
     {
@@ -109,7 +115,9 @@ class EnvBarExtension extends DataExtension
     /**
      * Check whether CurrentUser has access to edit pages.
      *
-     * @return boolean "true" if the user can edit pages, "false" otherwise
+     * @return boolean
+     *         "true" if the user can edit pages,
+     *         "false" otherwise
      */
     public function getCanAccess()
     {
@@ -124,7 +132,7 @@ class EnvBarExtension extends DataExtension
     /**
      * Generate the HTML to inject using the EnvBar.ss template.
      *
-     * @return DBHTMLText
+     * @return \SilverStripe\ORM\FieldType\DBHTMLText
      */
     private function generateEnvBar()
     {
