@@ -25,7 +25,7 @@ class EnvBarSiteConfigExtension extends DataExtension
      * @var string[]
      */
     private static $db = [
-        'EnvBarOverride' => 'Boolean',
+        'EnvBarDisplay' => 'Boolean',
     ];
 
     /**
@@ -40,9 +40,10 @@ class EnvBarSiteConfigExtension extends DataExtension
     {
         $fields->addFieldsToTab('Root.EnvironmentIndicator', [
             CheckboxField::create(
-                'EnvBarOverride',
-                'Tick to turn off the environment indicator bar'
-            ),
+                'EnvBarDisplay',
+                'Display the environment indicator bar?'
+            )->setDescription('Check to show the environment indicator bar on'
+                . ' all pages being viewed in this environment.'),
         ]);
     }
 }

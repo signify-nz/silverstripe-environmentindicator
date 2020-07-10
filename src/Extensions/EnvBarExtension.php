@@ -49,7 +49,8 @@ class EnvBarExtension extends DataExtension
     }
 
     /**
-     * Rewrite the HTML of the viewed page to insert the EnvBar.
+     * Rewrite the HTML of the viewed page to insert the EnvBar if the
+     * two conditions (display and auto-insert enabled) have been met.
      *
      * @param HTTPRequest $request
      * @param string $action
@@ -59,15 +60,15 @@ class EnvBarExtension extends DataExtension
      */
     public function afterCallActionHandler($request, $action, $result)
     {
-        if (!($result instanceof DBHTMLText)) {
+        // Check if display is turned on in the CMS
+        if (!SiteConfig::current_site_config()->EnvBarDisplay) {
             return $result;
         }
-        if (SiteConfig::current_site_config()->EnvBarOverride) {
-            return $result;
-        }
+        // Check if automatic placement has been turned off in a _config yml
         if (Config::inst()->get(__CLASS__, 'disable_auto_insert')) {
             return $result;
         }
+
         $html = $result->getValue();
         $envBar = $this->generateEnvBar()->getValue();
         $html = preg_replace(
@@ -76,6 +77,7 @@ class EnvBarExtension extends DataExtension
             $html
         );
         $result->setValue($html);
+
         return $result;
     }
 
@@ -130,7 +132,7 @@ class EnvBarExtension extends DataExtension
     }
 
     /**
-     * Get EnvBar html as a template variable.
+     * Get EnvBar HTML as a template variable.
      *
      * @return DBHTMLText
      */
@@ -138,7 +140,7 @@ class EnvBarExtension extends DataExtension
     {
         if (
             Config::inst()->get(__CLASS__, 'disable_auto_insert')
-            && !(SiteConfig::current_site_config()->EnvBarOverride)
+            && SiteConfig::current_site_config()->EnvBarDisplay
         ) {
             return $this->generateEnvBar();
         }
