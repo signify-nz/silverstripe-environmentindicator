@@ -3,6 +3,7 @@ SilverStripe\SiteConfig\SiteConfig:
     Title: Test site
     CanViewType: Anyone
     CanEditType: LoggedInUsers
+    EnvBarDisplay: 1
 
 SilverStripe\Security\Group:
   admins:
