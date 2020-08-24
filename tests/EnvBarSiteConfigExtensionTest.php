@@ -18,8 +18,6 @@ class EnvBarSiteConfigExtensionTest extends FunctionalTest
      */
     public function testDisplayEnabled()
     {
-        SiteConfig::current_site_config()->setField('EnvBarDisplay', 1);
-
         $url = $this->objFromFixture(
             'SilverStripe\CMS\Model\SiteTree',
             'default'
@@ -41,8 +39,6 @@ class EnvBarSiteConfigExtensionTest extends FunctionalTest
      */
     public function testDisplayDisabled()
     {
-        SiteConfig::current_site_config()->setField('EnvBarDisplay', 0);
-
         $url = $this->objFromFixture(
             'SilverStripe\CMS\Model\SiteTree',
             'default'
@@ -68,6 +64,7 @@ class EnvBarSiteConfigExtensionTest extends FunctionalTest
         if ($user) {
             $this->logInAs($user);
         }
+        SiteConfig::current_site_config()->setField('EnvBarDisplay', 'true');
         $testPage = $this->get($url);
         $this->assertContains(
             '.page__envbar',
@@ -86,6 +83,7 @@ class EnvBarSiteConfigExtensionTest extends FunctionalTest
         if ($user) {
             $this->logInAs($user);
         }
+        SiteConfig::current_site_config()->setField('EnvBarDisplay', 'false');
         $testPage = $this->get($url);
         $this->assertNotContains(
             '.page__envbar',
