@@ -60,6 +60,9 @@ class EnvBarExtension extends DataExtension
      */
     public function afterCallActionHandler($request, $action, $result)
     {
+        if (is_array($result)) {
+            $result = $this->owner->getViewer($action)->process($this->owner->customise($result));
+        }
         if (!($result instanceof DBHTMLText)) {
             return $result;
         }
