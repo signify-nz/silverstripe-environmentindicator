@@ -28,8 +28,8 @@ before_script:
 
     - composer validate
     - composer require --no-update silverstripe/recipe-cms:"$RECIPE_VERSION"
-    - if [[ $DB == PGSQL ]]; then composer require --no-update silverstripe/postgresql:2.1.x-dev; fi
-    - composer install --prefer-source --no-interaction --no-progress --no-suggest --optimize-autoloader --verbose --profile
+    - if [[ $DB == PGSQL ]]; then composer require --no-update silverstripe/postgresql:^2.1.0; fi
+    - composer install --prefer-source --no-interaction --no-progress --optimize-autoloader --verbose --profile
 
 script:
     - if [[ $PHPUNIT_TEST ]]; then vendor/bin/phpunit tests/EnvBarExtensionTest.php; fi
