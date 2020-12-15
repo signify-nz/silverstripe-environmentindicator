@@ -10,3 +10,6 @@ After: "framework/*, cms/*"
 SilverStripe\CMS\Controllers\ContentController:
   extensions:
     - Signify\EnvBar\Extensions\EnvBarExtension
+SilverStripe\SiteConfig\SiteConfig:
+  extensions:
+    - Signify\EnvBar\Extensions\EnvBarSiteConfigExtension
