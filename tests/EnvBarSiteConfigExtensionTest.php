@@ -39,10 +39,11 @@ class EnvBarSiteConfigExtensionTest extends FunctionalTest
      */
     public function testDisplayDisabled()
     {
-        $url = $this->objFromFixture(
+        $page = $this->objFromFixture(
             'SilverStripe\CMS\Model\SiteTree',
             'default'
-        )->URLSegment;
+        );
+        $url = $page->URLSegment . '?stage=Stage';
 
         $user = $this->objFromFixture(
             'SilverStripe\Security\Member',
