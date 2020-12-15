@@ -3,10 +3,12 @@
 namespace Signify\EnvBar\Extensions;
 
 use SilverStripe\Control\Director;
+use SilverStripe\Core\Config\Config;
 use SilverStripe\ORM\DataExtension;
 use SilverStripe\ORM\FieldType\DBHTMLText;
 use SilverStripe\Security\Permission;
 use SilverStripe\Security\Security;
+use SilverStripe\SiteConfig\SiteConfig;
 use SilverStripe\Versioned\Versioned;
 use SilverStripe\View\Requirements;
 
@@ -48,7 +50,8 @@ class EnvBarExtension extends DataExtension
     }
 
     /**
-     * Rewrite the HTML of the viewed page to insert the EnvBar.
+     * Rewrite the HTML of the viewed page to insert the EnvBar if the
+     * two conditions (display and auto-insert enabled) have been met.
      *
      * @param  \SilverStripe\Control\HTTPRequest $request
      * @param  string $action
@@ -60,9 +63,15 @@ class EnvBarExtension extends DataExtension
      */
     public function afterCallActionHandler($request, $action, $result)
     {
-        if (!($result instanceof DBHTMLText)) {
+        // Check if display is turned on in the CMS
+        if (!SiteConfig::current_site_config()->EnvBarDisplay) {
             return $result;
         }
+        // Check if automatic placement has been turned off in a _config yml
+        if (Config::inst()->get(__CLASS__, 'disable_auto_insert')) {
+            return $result;
+        }
+
         $html = $result->getValue();
         $envBar = $this->generateEnvBar()->getValue();
         $html = preg_replace(
@@ -71,6 +80,7 @@ class EnvBarExtension extends DataExtension
             $html
         );
         $result->setValue($html);
+
         return $result;
     }
 
@@ -126,6 +136,21 @@ class EnvBarExtension extends DataExtension
             return true;
         } else {
             return false;
+        }
+    }
+
+    /**
+     * Get EnvBar HTML as a template variable.
+     *
+     * @return DBHTMLText
+     */
+    public function getEnvBar()
+    {
+        if (
+            Config::inst()->get(__CLASS__, 'disable_auto_insert')
+            && SiteConfig::current_site_config()->EnvBarDisplay
+        ) {
+            return $this->generateEnvBar();
         }
     }
 
