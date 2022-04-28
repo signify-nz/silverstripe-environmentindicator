@@ -18,10 +18,11 @@ class EnvBarSiteConfigExtensionTest extends FunctionalTest
      */
     public function testDisplayEnabled()
     {
-        $url = $this->objFromFixture(
+        $page = $this->objFromFixture(
             'SilverStripe\CMS\Model\SiteTree',
             'default'
-        )->URLSegment;
+        );
+        $url = $page->URLSegment . '?stage=Stage';
 
         $user = $this->objFromFixture(
             'SilverStripe\Security\Member',
@@ -65,10 +66,10 @@ class EnvBarSiteConfigExtensionTest extends FunctionalTest
         if ($user) {
             $this->logInAs($user);
         }
-        SiteConfig::current_site_config()->setField('EnvBarDisplay', 'true');
+        SiteConfig::current_site_config()->setField('EnvBarDisplay', true);
         $testPage = $this->get($url);
         $this->assertContains(
-            '.page__envbar',
+            'page__envbar',
             $testPage->getBody()
         );
         if ($user) {
@@ -84,10 +85,10 @@ class EnvBarSiteConfigExtensionTest extends FunctionalTest
         if ($user) {
             $this->logInAs($user);
         }
-        SiteConfig::current_site_config()->setField('EnvBarDisplay', 'false');
+        SiteConfig::current_site_config()->setField('EnvBarDisplay', false);
         $testPage = $this->get($url);
         $this->assertNotContains(
-            '.page__envbar',
+            'page__envbar',
             $testPage->getBody()
         );
         if ($user) {
