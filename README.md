@@ -11,8 +11,7 @@ The bar does not appear in live mode for unauthorised users.
 
 ## Requirements
 
-* [SilverStripe CMS ^4](https://github.com/silverstripe/silverstripe-cms)
-* [SilverStripe CMS ^5](https://github.com/silverstripe/silverstripe-cms)
+* [SilverStripe CMS ^4](https://github.com/silverstripe/silverstripe-cms) OR [SilverStripe CMS ^5](https://github.com/silverstripe/silverstripe-cms)
 
 ## Installation
 
