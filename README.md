@@ -1,4 +1,3 @@
-[![Build Status](https://travis-ci.org/signify-nz/silverstripe-environmentindicator.svg?branch=master)](https://travis-ci.org/signify-nz/silverstripe-environmentindicator)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/signify-nz/silverstripe-environmentindicator/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/signify-nz/silverstripe-environmentindicator/?branch=master)
 
 # Environment Indicator
@@ -11,11 +10,11 @@ The bar does not appear in live mode for unauthorised users.
 
 ## Requirements
 
-* [SilverStripe CMS ^4](https://github.com/silverstripe/silverstripe-cms)
+-   [SilverStripe CMS ^4](https://github.com/silverstripe/silverstripe-cms) OR [SilverStripe CMS ^5](https://github.com/silverstripe/silverstripe-cms)
 
 ## Installation
 
-__Composer:__
+**Composer:**
 
 ```
     composer require signify-nz/silverstripe-environmentindicator
@@ -27,10 +26,10 @@ No further configuration is required.
 
 Customisation can be achieved by editing the EnvBar.ss template or the envbar- .js and .css files. Functional tests are available in the tests directory. These will need to be updated if you modify the template.
 
-* [Changelog](CHANGELOG.md)
-* [Contributing](CONTRIBUTING.md)
-* [Issues](https://github.com/signify-nz/silverstripe-environmentindicator/issues)
-* [License](LICENSE.md)
+-   [Changelog](CHANGELOG.md)
+-   [Contributing](CONTRIBUTING.md)
+-   [Issues](https://github.com/signify-nz/silverstripe-environmentindicator/issues)
+-   [License](LICENSE.md)
 
 ## Usage
 
