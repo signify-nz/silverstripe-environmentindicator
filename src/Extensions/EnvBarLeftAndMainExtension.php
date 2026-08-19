@@ -23,7 +23,7 @@ use SilverStripe\View\Requirements;
  */
 class EnvBarLeftAndMainExtension extends Extension
 {
-    public function init()
+    public function onInit()
     {
         Requirements::css('signify-nz/silverstripe-environmentindicator:admin/client/dist/css/envbar.css');
 

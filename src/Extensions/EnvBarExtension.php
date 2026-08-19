@@ -3,7 +3,7 @@
 namespace Signify\EnvBar\Extensions;
 
 use SilverStripe\Control\Director;
-use SilverStripe\ORM\DataExtension;
+use SilverStripe\Core\Extension;
 use SilverStripe\ORM\FieldType\DBHTMLText;
 use SilverStripe\Security\Permission;
 use SilverStripe\Security\Security;
@@ -32,7 +32,7 @@ use SilverStripe\View\Requirements;
  * @return \SilverStripe\Control\HTTPResponse $result
  *         with the EnvBar CSS and HTML inserted.
  */
-class EnvBarExtension extends DataExtension
+class EnvBarExtension extends Extension
 {
     /**
      * Load the CSS requirement.
